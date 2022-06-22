@@ -7,18 +7,21 @@ import HomeAboutUs from "./HomeAboutUs";
 import HomeWhoWeHelp from "./HomeWhoWeHelp";
 import HomeContact from "./HomeContact";
 import HomeFooter from "./HomeFooter";
+import banner_bg from "../assets/Home-Hero-Image.jpg";
 
 function Home() {
     return (
         <div className="container">
-            <HomeHeader />
-            <HomeBanner />
-            <HomeThreeColumns />
-            <HomeSimpleSteps />
-            <HomeAboutUs />
-            <HomeWhoWeHelp />
-            <HomeContact />
-            <HomeFooter />
+            <div className="container__bg-image" style={{backgroundImage: `url(${banner_bg})`}}>
+                <HomeHeader/>
+                <HomeBanner/>
+            </div>
+            <HomeThreeColumns/>
+            <HomeSimpleSteps/>
+            <HomeAboutUs/>
+            <HomeWhoWeHelp/>
+            <HomeContact/>
+            <HomeFooter/>
         </div>
     );
 }

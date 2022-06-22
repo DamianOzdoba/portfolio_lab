@@ -7,6 +7,9 @@
 @import "./_homeHeader.scss";
 @import "./_homeHeaderUser.scss";
 @import "./_homeHeaderNav.scss";
+@import "./_homeBanner.scss";
+@import "./_homeThreeColumns.scss";
+@import "./_homeThreeColumnsArticle.scss";
 
 body {
   font-family: $font-base;
@@ -15,5 +18,11 @@ body {
 .container {
   margin: 0 auto;
   max-width: 1900px;
+
+  &__bg-image {
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    background-position-x: -481px;
+  }
 }
 

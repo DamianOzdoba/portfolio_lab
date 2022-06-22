@@ -4,9 +4,14 @@ import {Link} from "react-router-dom";
 
 function HomeBanner() {
     return (
-        <Element name="homeBanner" className="section">
-            <Link to='/logowanie'>ODDAJ RZECZY</Link>
-            <Link to='/logowanie'>ZORGANIZUJ ZBIÓRKĘ</Link>
+        <Element name="homeBanner" className="home-banner">
+            <div className="home-banner__container">
+                <h1 className="home-banner__title">Zacznij pomagać!<br/> Oddaj niechciane rzeczy w zaufane ręce</h1>
+                <div className="home-banner__btns">
+                    <Link to='/logowanie'><span>ODDAJ<br /> RZECZY</span></Link>
+                    <Link to='/logowanie'><span>ZORGANIZUJ<br /> ZBIÓRKĘ</span></Link>
+                </div>
+            </div>
         </Element>
     );
 }
