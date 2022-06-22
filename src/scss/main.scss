@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;1,300&family=Open+Sans:wght@300;400;600&display=swap');
+@import "normalize";
+
+@import "./settings/fonts";
+
+body {
+  font-family: $font-base;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1900px;
+}
+
+.section {
+  height: 100vh;
+}
