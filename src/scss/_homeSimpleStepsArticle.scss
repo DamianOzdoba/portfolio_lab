@@ -1,0 +1,30 @@
+.home-simple-steps-article {
+  max-width: 164px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $color-gray2;
+
+  &__title {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 400;
+    position: relative;
+
+    &::after {
+      content: '';
+      height: 1px;
+      width: 70px;
+      background-color: $color-gray5;
+      position: absolute;
+      bottom: -16px;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+  }
+
+  &__description {
+    text-align: center;
+    font-size: 16px;
+  }
+}
