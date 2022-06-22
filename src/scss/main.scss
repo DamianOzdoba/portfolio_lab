@@ -2,6 +2,11 @@
 @import "normalize";
 
 @import "./settings/fonts";
+@import "./settings/colors";
+
+@import "./_homeHeader.scss";
+@import "./_homeHeaderUser.scss";
+@import "./_homeHeaderNav.scss";
 
 body {
   font-family: $font-base;
@@ -12,6 +17,3 @@ body {
   max-width: 1900px;
 }
 
-.section {
-  height: 100vh;
-}

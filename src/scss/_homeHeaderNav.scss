@@ -1,0 +1,18 @@
+.home-header-nav {
+  display: flex;
+  gap: 15px;
+
+  & a {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 18px;
+    color: $color-gray2;
+    padding: 9px 20px;
+    border: 0.75px solid transparent;
+
+    &:hover {
+      cursor: pointer;
+      border: 0.75px solid $color-gray2;
+    }
+  }
+}

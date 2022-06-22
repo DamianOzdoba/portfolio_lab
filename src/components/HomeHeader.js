@@ -4,7 +4,7 @@ import HomeHeaderNav from "./HomeHeaderNav";
 
 function HomeHeader() {
     return (
-        <div>
+        <div className="home-header">
             <HomeHeaderUser />
             <HomeHeaderNav />
         </div>

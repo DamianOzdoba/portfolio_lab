@@ -3,7 +3,7 @@ import {Link} from "react-scroll";
 
 function HomeHeaderNav() {
     return (
-        <div>
+        <div className="home-header-nav">
             <Link to='homeBanner'>Start</Link>
             <Link to='homeSimpleSteps'>O co chodzi?</Link>
             <Link to='homeAboutUs'>O nas</Link>
