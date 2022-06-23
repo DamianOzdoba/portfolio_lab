@@ -12,6 +12,7 @@
 @import "./_homeThreeColumnsArticle.scss";
 @import "./_homeSimpleSteps.scss";
 @import "./_homeSimpleStepsArticle.scss";
+@import "./_homeAboutUs.scss";
 
 body {
   font-family: $font-base;
@@ -25,6 +26,44 @@ body {
     margin: 0 auto;
     background-repeat: no-repeat;
     background-position-x: -481px;
+  }
+}
+
+.btn {
+  width: 310px;
+  height: 120px;
+  text-decoration: none;
+  text-align: center;
+  font-size: 36px;
+  line-height: 45px;
+  font-weight: 300;
+  color: $color-gray2;
+  border: 0.75px solid $color-gray2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  margin-top: 55px;
+  margin-bottom: 90px;
+  text-align: center;
+  font-size: 38px;
+  font-weight: 400;
+  letter-spacing: -0.76px;
+  line-height: 55px;
+  color: $color-gray2;
+  position: relative;
+
+  &::after {
+    content: '';
+    background-image: url("../assets/Decoration.svg");
+    width: 253px;
+    height: 33px;
+    position: absolute;
+    bottom: -55px;
+    left: 50%;
+    transform: translate(-50%, 0);
   }
 }
 

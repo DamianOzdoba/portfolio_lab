@@ -1,6 +1,6 @@
 .home-banner {
   margin: 0 auto;
-  padding-top: 210px;
+  padding-top: 155px;
   box-sizing: border-box;
   height: 830px;
   max-width: 1440px;
@@ -16,27 +16,6 @@
     align-items: center;
   }
 
-  &__title {
-    text-align: center;
-    font-size: 38px;
-    font-weight: 400;
-    color: $color-gray2;
-    position: relative;
-    letter-spacing: -0.76px;
-    line-height: 55px;
-
-    &::after {
-      content: '';
-      background-image: url("../assets/Decoration.svg");
-      width: 253px;
-      height: 33px;
-      position: absolute;
-      bottom: -58px;
-      left: 50%;
-      transform: translate(-50%, 0);
-    }
-  }
-
   &__btns {
     width: 100%;
     display: flex;
@@ -44,17 +23,3 @@
   }
 }
 
-.btn {
-  width: 310px;
-  height: 120px;
-  text-decoration: none;
-  text-align: center;
-  font-size: 36px;
-  line-height: 45px;
-  font-weight: 300;
-  color: $color-gray2;
-  border: 0.75px solid $color-gray2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
