@@ -14,8 +14,9 @@
 @import "./_homeSimpleStepsArticle.scss";
 @import "./_homeAboutUs.scss";
 @import "./_homeWhoWeHelp.scss";
+@import "./_carouselElement";
 @import "./_homeContact.scss";
-@import "contactForm";
+@import "./_contactForm";
 @import "./_homeFooter.scss";
 
 body {
@@ -61,6 +62,21 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &:hover {
+    cursor: pointer;
+    border: 0.75px solid $color-gray2;
+  }
+
+  &--wwh {
+    width: 208px;
+    height: 79px;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 24px;
+    background-color: transparent;
+    border: none;
+  }
 }
 
 .title {

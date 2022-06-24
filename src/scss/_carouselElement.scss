@@ -1,0 +1,19 @@
+.carousel-element {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Merriweather', serif;
+  font-size: 18px;
+
+  &__main-info {
+    text-align: left;
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 400;
+  }
+
+  &__description {
+    font-style: italic;
+  }
+}

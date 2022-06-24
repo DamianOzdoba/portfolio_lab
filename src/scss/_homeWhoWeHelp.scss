@@ -1,0 +1,42 @@
+.home-who-we-help {
+  height: 1012px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(12, 120px);
+    column-gap: 16px;
+  }
+
+  &__btns {
+    grid-column: 4 / 10;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__content {
+    grid-column: 2 /12;
+    color: $color-gray2;
+
+    & .carousel-slider {
+      overflow: visible!important;
+    }
+    & .control-dots {
+      bottom: -100px!important;
+    }
+  }
+
+  &__description {
+
+    margin: 70px auto 70px;
+    max-width: 640px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 30px;
+  }
+}
+
