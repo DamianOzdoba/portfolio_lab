@@ -5,8 +5,10 @@ import HomeHeaderNav from "./HomeHeaderNav";
 function HomeHeader() {
     return (
         <div className="home-header">
-            <HomeHeaderUser />
-            <HomeHeaderNav />
+            <div className="home-header__container">
+                <HomeHeaderUser/>
+                <HomeHeaderNav/>
+            </div>
         </div>
     );
 }

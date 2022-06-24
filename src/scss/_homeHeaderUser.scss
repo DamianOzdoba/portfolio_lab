@@ -1,6 +1,9 @@
 .home-header-user {
   display: flex;
   gap: 10px;
+  grid-column: 7 / 13;
+  justify-content: end;
+  align-items: center;
 
   & a {
     display: inline-block;

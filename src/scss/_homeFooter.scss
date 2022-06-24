@@ -1,0 +1,26 @@
+.home-footer {
+  width: 100%;
+  z-index: 10;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: end;
+  gap: 750px;
+
+  & p {
+    font-size: 18px;
+    color: $color-gray2;
+  }
+
+  &__icons {
+    display: flex;
+    gap: 20px;
+
+    & a {
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+  }
+
+}

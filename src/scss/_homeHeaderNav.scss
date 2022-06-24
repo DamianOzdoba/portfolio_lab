@@ -1,6 +1,9 @@
 .home-header-nav {
   display: flex;
   gap: 15px;
+  grid-column: 7 / 13;
+  justify-content: end;
+  align-items: center;
 
   & a {
     display: inline-block;

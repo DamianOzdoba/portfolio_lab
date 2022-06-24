@@ -2,7 +2,21 @@
   height: 384px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 286px;
   background-size: cover;
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(12, 120px);
+    column-gap: 16px;
+  }
+
+  &__content {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    grid-column: 1 / 13;
+    justify-content: space-between;
+
+  }
 }

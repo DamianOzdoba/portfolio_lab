@@ -8,11 +8,12 @@ import HomeWhoWeHelp from "./HomeWhoWeHelp";
 import HomeContact from "./HomeContact";
 import HomeFooter from "./HomeFooter";
 import banner_bg from "../assets/Home-Hero-Image.jpg";
+import contact_bg from "../assets/Background-Contact-Form.jpg";
 
 function Home() {
     return (
         <div className="container">
-            <div className="container__bg-image" style={{backgroundImage: `url(${banner_bg})`}}>
+            <div className="container__bg-banner" style={{backgroundImage: `url(${banner_bg})`}}>
                 <HomeHeader/>
                 <HomeBanner/>
             </div>
@@ -20,8 +21,10 @@ function Home() {
             <HomeSimpleSteps/>
             <HomeAboutUs/>
             <HomeWhoWeHelp/>
-            <HomeContact/>
-            <HomeFooter/>
+            <div className="container__bg-contact" style={{backgroundImage: `url(${contact_bg})`}}>
+                <HomeContact/>
+                <HomeFooter/>
+            </div>
         </div>
     );
 }
