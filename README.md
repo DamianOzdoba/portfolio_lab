@@ -14,3 +14,4 @@ Project as part of the portfolio_lab module on CodersLab course.
 
 ### react-router-dom
 ### react-scroll
+### axios
