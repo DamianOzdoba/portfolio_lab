@@ -4,6 +4,13 @@
   display: flex;
   flex-direction: column;
 
+  &>span {
+    color: limegreen;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: center;
+  }
+
   &__container {
     display: flex;
     justify-content: space-between;
