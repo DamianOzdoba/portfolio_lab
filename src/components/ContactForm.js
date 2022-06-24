@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
+import axios from "axios";
 
 function ContactForm() {
+    const [isSent, setIsSend] = useState(false);
     return (
         <Formik
             initialValues={{name: '', email: '', message: ''}}
@@ -18,14 +20,21 @@ function ContactForm() {
                     .required('Wiadomość jest wymagana!'),
             })}
             onSubmit={(values, {setSubmitting}) => {
-                setTimeout(() => {
-                    alert(JSON.stringify(values, null, 2));
-                    setSubmitting(false);
-                }, 400);
+                axios.post('https://fer-api.coderslab.pl/v1/portfolio/contact', values, {
+                    "headers": {
+                        "content-type": "application/json",
+                    }
+                })
+                    .then(r => {
+                        setSubmitting(false);
+                        setIsSend(true);
+                        console.log('ok');
+                    })
             }}
         >
 
-            <Form className="form" method="POST">
+            <Form className="form">
+                {isSent === true ? <span>Wiadomość została wysłana!<br/>Wkrótce się skontaktujemy.</span> : null}
                 <div className="form__container">
                     <div className="form__input">
                         <label htmlFor="name">Wpisz swoje imię</label>
