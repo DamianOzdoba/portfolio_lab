@@ -20,13 +20,6 @@
   &__content {
     grid-column: 2 /12;
     color: $color-gray2;
-
-    & .carousel-slider {
-      overflow: visible!important;
-    }
-    & .control-dots {
-      bottom: -100px!important;
-    }
   }
 
   &__description {

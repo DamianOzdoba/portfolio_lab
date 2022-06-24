@@ -18,6 +18,7 @@
 @import "./_homeContact.scss";
 @import "./_contactForm";
 @import "./_homeFooter.scss";
+@import "./_login.scss";
 
 body {
   font-family: $font-base;
@@ -104,5 +105,13 @@ body {
     left: 50%;
     transform: translate(-50%, 0);
   }
+}
+
+.carousel-slider {
+  overflow: visible!important;
+}
+
+.control-dots {
+  bottom: -100px!important;
 }
 
