@@ -11,7 +11,8 @@ function ContactForm() {
             validationSchema={Yup.object({
                 name: Yup.string()
                     .min(3, 'Podane imię jest nieprawidłowe!')
-                    .required('Imię jest wymagane!'),
+                    .required('Imię jest wymagane!')
+                    .matches(/^\S+$/, 'Imię nie może zawierać spacji!'),
                 email: Yup.string()
                     .email('Podany adres amail jest nieprawidłowy!')
                     .required('Adres email jest wymagany!'),

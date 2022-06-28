@@ -1,169 +1,87 @@
 import React, {useState} from 'react';
+import HomeWhoWeHelpList from "./HomeWhoWeHelpList";
+import Pagination from "./Pagination";
 import {Element} from "react-scroll";
-import {Carousel} from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import CarouselElement from "./CarouselElement";
+import foundations from "../data/foundations.json";
+import organizations from "../data/organizations.json";
+import local from "../data/local.json";
 
 
 function HomeWhoWeHelp() {
-    const [whoWeHelp, setWhoWeHelp] = useState('fundations');
+    const [whoWeHelp, setWhoWeHelp] = useState(foundations);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [elementsPerPage, setElementsPerPage] = useState(3);
 
-    const defStyle = {
-        marginLeft: 10,
-        marginRight: 10,
-        display: 'inline-flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: 18,
-        width: 40,
-        height: 50,
-        cursor: "pointer",
-        color: "#3C3C3CFF"
-    };
+    const indexOfLastElement = currentPage * elementsPerPage;
+    const indexOfFirstElement = indexOfLastElement - elementsPerPage;
+    const currentElements = whoWeHelp.slice(indexOfFirstElement, indexOfLastElement);
+
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     return (
         <Element name='homeWhoWeHelp' className="home-who-we-help">
             <h2 className="title">Komu pomagamy?</h2>
             <div className="home-who-we-help__container">
                 <div className="home-who-we-help__btns">
-                    <button className="btn btn--wwh" onClick={() => setWhoWeHelp('fundations')}>Fundacjom</button>
-                    <button className="btn btn--wwh" onClick={() => setWhoWeHelp('organizations')}>Organizacjom
+                    <button className="btn btn--wwh"
+                            onClick={() => {
+                                setWhoWeHelp(foundations);
+                                setCurrentPage(1);
+                            }}>Fundacjom
+                    </button>
+                    <button className="btn btn--wwh" onClick={() => {
+                        setWhoWeHelp(organizations);
+                        setCurrentPage(1);
+                    }}>Organizacjom
                         pozarządowym
                     </button>
-                    <button className="btn btn--wwh" onClick={() => setWhoWeHelp('local')}>Lokalnym zbiórkom</button>
+                    <button className="btn btn--wwh" onClick={() => {
+                        setWhoWeHelp(local);
+                        setCurrentPage(1);
+                    }}>Lokalnym zbiórkom
+                    </button>
                 </div>
-                {whoWeHelp === 'fundations' ?
+                {whoWeHelp === foundations ?
                     <div className="home-who-we-help__content">
                         <p className="home-who-we-help__description">W naszej bazie znajdziesz listę zweryfikowanych
                             Fundacji, z którymi współpracujemy. Możesz
                             sprawdzić czym się zajmują, komu pomagają i czego potrzebują.</p>
-                        <Carousel
-                            selectedItem={0}
-                            showArrows={false}
-                            showStatus={false}
-                            renderIndicator={(onClickHandler, isSelected, index, label) => {
-                                const activeStyle = isSelected ?
-                                    {...defStyle, border: '0.75px solid #3C3C3CFF'} :
-                                    {...defStyle};
-                                return (
-                                    <span
-                                        style={activeStyle}
-                                        onClick={onClickHandler}
-                                        onKeyDown={onClickHandler}
-                                        key={index}
-                                        role="button"
-                                        tabIndex={0}
-                                        aria-label={`${label} ${index + 1}`}
-                                    >
-                                        {(index + 1)}
-                                    </span>
-                                );
-                            }}
-                        >
-                            <div>
-                                <CarouselElement title={'Fundacja “Dbam o Zdrowie”'}/>
-                                <span style={{display: 'block', height: 1, width: '100%', backgroundColor: '#3C3C3CFF'}}></span>
-                                <CarouselElement title={'Fundacja “Dbam o Zdrowie”'}/>
-                                <span style={{display: 'block', height: 1, width: '100%', backgroundColor: '#3C3C3CFF'}}></span>
-                                <CarouselElement title={'Fundacja “Dbam o Zdrowie”'}/>
-                            </div>
-                            <div>
-                                <CarouselElement title={'Fundacja “Dbam o Zdrowie”'}/>
-                                <span style={{display: 'block', height: 1, width: '100%', backgroundColor: '#3C3C3CFF'}}></span>
-                                <CarouselElement title={'Fundacja “Dbam o Zdrowie”'}/>
-                                <span style={{display: 'block', height: 1, width: '100%', backgroundColor: '#3C3C3CFF'}}></span>
-                                <CarouselElement title={'Fundacja “Dbam o Zdrowie”'}/>
-                            </div>
-                            <div>
-                                <CarouselElement title={'Fundacja “Dbam o Zdrowie”'}/>
-                                <span style={{display: 'block', height: 1, width: '100%', backgroundColor: '#3C3C3CFF'}}></span>
-                                <CarouselElement title={'Fundacja “Dbam o Zdrowie”'}/>
-                                <span style={{display: 'block', height: 1, width: '100%', backgroundColor: '#3C3C3CFF'}}></span>
-                                <CarouselElement title={'Fundacja “Dbam o Zdrowie”'}/>
-                            </div>
-                        </Carousel>
+                        <HomeWhoWeHelpList whoWeHelp={currentElements}/>
+                        {whoWeHelp.length > elementsPerPage
+                            ?
+                            <Pagination elementsPerPage={elementsPerPage} totalElements={whoWeHelp.length}
+                                        paginate={paginate}/>
+                            :
+                            null
+                        }
                     </div>
-                    : whoWeHelp === 'organizations' ?
+                    : whoWeHelp === organizations ?
                         <div className="home-who-we-help__content">
                             <p className="home-who-we-help__description">W naszej bazie znajdziesz listę zweryfikowanych
                                 Fundacji, z którymi współpracujemy. Możesz
                                 sprawdzić czym się zajmują, komu pomagają i czego potrzebują.</p>
-                            <Carousel
-                                selectedItem={0}
-                                showArrows={false}
-                                showStatus={false}
-                                renderIndicator={(onClickHandler, isSelected, index, label) => {
-                                    const activeStyle = isSelected ?
-                                        {...defStyle, border: '0.75px solid #3C3C3CFF'} :
-                                        {...defStyle};
-                                    return (
-                                        <span
-                                            style={activeStyle}
-                                            onClick={onClickHandler}
-                                            onKeyDown={onClickHandler}
-                                            key={index}
-                                            role="button"
-                                            tabIndex={0}
-                                            aria-label={`${label} ${index + 1}`}
-                                        >
-                                        {(index + 1)}
-                                    </span>
-                                    );
-                                }}
-                            >
-                                <div>
-                                    <CarouselElement title={'Organizacja jakaś'}/>
-                                    <span style={{display: 'block', height: 1, width: '100%', backgroundColor: '#3C3C3CFF'}}></span>
-                                    <CarouselElement title={'Organizacja jakaś'}/>
-                                    <span style={{display: 'block', height: 1, width: '100%', backgroundColor: '#3C3C3CFF'}}></span>
-                                    <CarouselElement title={'Organizacja jakaś'}/>
-                                </div>
-                                <div>
-                                    <CarouselElement title={'Organizacja jakaś'}/>
-                                    <span style={{display: 'block', height: 1, width: '100%', backgroundColor: '#3C3C3CFF'}}></span>
-                                    <CarouselElement title={'Organizacja jakaś'}/>
-                                    <span style={{display: 'block', height: 1, width: '100%', backgroundColor: '#3C3C3CFF'}}></span>
-                                    <CarouselElement title={'Organizacja jakaś'}/>
-                                </div>
-                            </Carousel>
+                            <HomeWhoWeHelpList whoWeHelp={currentElements}/>
+                            {whoWeHelp.length > elementsPerPage
+                                ?
+                                <Pagination elementsPerPage={elementsPerPage} totalElements={whoWeHelp.length}
+                                            paginate={paginate}/>
+                                :
+                                null
+                            }
                         </div>
                         :
                         <div className="home-who-we-help__content">
                             <p className="home-who-we-help__description">W naszej bazie znajdziesz listę zweryfikowanych
                                 Fundacji, z którymi współpracujemy. Możesz
                                 sprawdzić czym się zajmują, komu pomagają i czego potrzebują.</p>
-                            <Carousel
-                                selectedItem={0}
-                                showArrows={false}
-                                showStatus={false}
-                                showIndicators={false}
-                                renderIndicator={(onClickHandler, isSelected, index, label) => {
-                                    const activeStyle = isSelected ?
-                                        {...defStyle, border: '0.75px solid #3C3C3CFF'} :
-                                        {...defStyle};
-                                    return (
-                                        <span
-                                            style={activeStyle}
-                                            onClick={onClickHandler}
-                                            onKeyDown={onClickHandler}
-                                            key={index}
-                                            role="button"
-                                            tabIndex={0}
-                                            aria-label={`${label} ${index + 1}`}
-                                        >
-                                        {(index + 1)}
-                                    </span>
-                                    );
-                                }}
-                            >
-                                <div>
-                                    <CarouselElement title={'Lokalna zbiórka'}/>
-                                    <span style={{display: 'block', height: 1, width: '100%', backgroundColor: '#3C3C3CFF'}}></span>
-                                    <CarouselElement title={'Lokalna zbiórka'}/>
-                                    <span style={{display: 'block', height: 1, width: '100%', backgroundColor: '#3C3C3CFF'}}></span>
-                                    <CarouselElement title={'Lokalna zbiórka'}/>
-                                </div>
-                            </Carousel>
+                            <HomeWhoWeHelpList whoWeHelp={currentElements}/>
+                            {whoWeHelp.length > elementsPerPage
+                                ?
+                                <Pagination elementsPerPage={elementsPerPage} totalElements={whoWeHelp.length}
+                                            paginate={paginate}/>
+                                :
+                                null
+                            }
                         </div>
                 }
             </div>
